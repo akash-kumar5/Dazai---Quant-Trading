@@ -1,14 +1,18 @@
-import numpy as np
+import pandas as pd
 
-def calculate_ema(prices, period):
-    if not prices or len(prices) < period:
-        return [np.nan] * len(prices)  # Return NaN list if insufficient data
+# EMA Calculation Function
+def calculate_ema(data, period):
+    # Handle list input by converting to DataFrame
+    if isinstance(data, list):
+        data = pd.DataFrame({'close': data})
 
-    ema_values = []
-    multiplier = 2 / (period + 1)
-    ema_values.append(prices[0])  # Seed with first price
-    
-    for price in prices[1:]:
-        ema_values.append((price - ema_values[-1]) * multiplier + ema_values[-1])
+    # Validation
+    if not isinstance(data, pd.DataFrame):
+        raise TypeError("Input data must be a Pandas DataFrame or a list")
+    if 'close' not in data.columns:
+        raise ValueError("'close' column not found in data")
+    if len(data) < period:
+        raise ValueError("Insufficient data for EMA calculation")
 
-    return ema_values
+    # Calculate EMA
+    return data['close'].ewm(span=period, adjust=False).mean()

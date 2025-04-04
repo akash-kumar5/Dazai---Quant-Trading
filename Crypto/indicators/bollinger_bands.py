@@ -1,13 +1,13 @@
 from indicators.sma import calculate_sma
 
-def calculate_bollinger_bands(prices, period, std_dev):
-    sma = calculate_sma(prices, period)
-    bands = []
-    for i in range(len(sma)):
-        slice_prices = prices[i+period-len(sma):i+period]
-        std_deviation = (sum([(p - sma[i]) ** 2 for p in slice_prices]) / period) ** 0.5
-        upper_band = sma[i] + (std_deviation * std_dev)
-        lower_band = sma[i] - (std_deviation * std_dev)
-        bands.append((upper_band, sma[i], lower_band))
-    return bands
+def calculate_bollinger_bands(data, period, std_dev):
+    if len(data) < period:
+        print("Error calculating Bollinger Bands: Insufficient data")
+        return None, None
+    rolling_mean = data['close'].rolling(window=period).mean()
+    rolling_std = data['close'].rolling(window=period).std()
+    upper_band = rolling_mean + (rolling_std * std_dev)
+    lower_band = rolling_mean - (rolling_std * std_dev)
+    return upper_band, lower_band
+
 # Compare this snippet from indicators/__init__.py:

@@ -3,10 +3,10 @@ import json
 import threading
 import time
 import pandas as pd
-from strategies.multiInd import MultiIndicatorStrategy
+from strategies.EARA import TrendSurferStrategy
 
 # Initialize strategy
-strategy = MultiIndicatorStrategy(rsi_period=3, macd_fast=3, macd_slow=6, macd_signal=3, vwap_period=3)
+strategy = TrendSurferStrategy()
 
 def on_message(ws, message):
     data = json.loads(message)
@@ -14,11 +14,13 @@ def on_message(ws, message):
     if data.get('e') == "24hrTicker":
         price = float(data.get('c'))
         volume = float(data.get('v'))
+        high = float(data.get('h'))
+        low = float(data.get('l'))
 
-        print(f"Received -> Price: {price}, Volume: {volume}")
+        print(f"Received -> Price: {price},High: {high}, Low: {low}, Volume: {volume}")
         
         # Update strategy with new price and volume
-        strategy.update(price, volume)
+        strategy.update(price,high, low, volume)
 
         # Generate and print signal if data is sufficient
         signal_df = strategy.generate_signals()
