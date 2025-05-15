@@ -2,7 +2,6 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import csv
-from datetime import datetime
 import util.metrics as metric
 
 class ResultAnalyzer:
@@ -71,7 +70,7 @@ class ResultAnalyzer:
 
     def get_metrics_dict(self, trades):
         return {
-            # "Total Trades": len(trades),
+            "Total Trades": round(len(trades),2),
             "Total Return": round(metric.total_return(trades), 2),
             "Average Return": round(metric.average_return(trades), 2),
             "Win Rate (%)": round(metric.win_rate(trades) * 100, 2),
