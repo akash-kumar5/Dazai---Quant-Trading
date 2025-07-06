@@ -72,7 +72,21 @@ You can backtest and visualize two core strategies — including one built on a 
 
 ## 🖥️ Dashboard Preview
 
-![Dashboard Preview](assest/dashboard.png)
+### 🔹 Dashboard Home
+![Dashboard](assets/dashboard.png)
+
+### 🔹 Data Loader Page
+![Loader](assets/loader.png)
+
+### 🔹 Strategy Backtesting Interface
+![Backtest](assets/backtest.png)
+
+### 🔹 Trade Visualizer (Chart with Signals)
+![Visualizer](assets/visualizer.png)
+
+### 🔹 Strategy Performance Metrics
+![Metrics](assets/result.png)
+
 
 ## 🚀 How to Run
 
