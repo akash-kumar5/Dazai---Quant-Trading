@@ -33,40 +33,60 @@ You can backtest and visualize two core strategies — including one built on a 
 ---
 
 ## 🧱 Project Structure
-├── backtest
-| ├── backtester.py
-| └── result_analyzer.py
+.
+├── backtest/
+│ ├── backtester.py
+│ └── result_analyzer.py
 ├── core/
 │ ├── execution.py
-| ├── indicator.py
-| ├── regime_classifier.py
-| └── risk_manager.py
+│ ├── indicator.py
+│ ├── regime_classifier.py
+│ └── risk_manager.py
 ├── data/
 │ └── btcusd_1h.csv
 ├── interface/
-| ├── pages/
-|     ├── Loader.py
-|     ├── Backtester.py
-|     └── Visualizer.py
-| └── app.py
+│ ├── pages/
+│ │ ├── Loader.py
+│ │ ├── Backtester.py
+│ │ └── Visualizer.py
+│ └── app.py
 ├── log/
-|  ├──2025-05-15_EARA_Strategy.csv
-|  ├──2025-07-06_EARA_Strategy.csv
-|  └──2025-07-06_Moving_Average_Strategy.csv
+│ ├── 2025-05-15_EARA_Strategy.csv
+│ ├── 2025-07-06_EARA_Strategy.csv
+│ └── 2025-07-06_Moving_Average_Strategy.csv
 ├── strategies/
 │ ├── MA.py
 │ └── EARA.py
 ├── utils/
 │ ├── loader.py
-| ├── logger.py
-| ├── metrics.py
-│ └── trade_visulaizer.py
+│ ├── logger.py
+│ ├── metrics.py
+│ └── trade_visualizer.py
+├── assets/
+│ ├── dashboard.png
+│ ├── ema_signals.png
+│ ├── eara_strategy.png
+│ └── backtester.png
 ├── README.md
 
 
 ## 🖥️ Dashboard Preview
 
-![Dashboard Preview]()
+### 🔹 Dashboard Home
+![Dashboard](assets/dashboard.png)
+
+### 🔹 Data Loader Page
+![Loader](assets/loader.png)
+
+### 🔹 Strategy Backtesting Interface
+![Backtest](assets/backtester.png)
+
+### 🔹 Trade Visualizer (Chart with Signals)
+![Visualizer](assets/chart.png)
+
+### 🔹 Strategy Performance Metrics
+![Metrics](assets/result.png)
+
 
 ## 🚀 How to Run
 
