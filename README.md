@@ -79,10 +79,10 @@ You can backtest and visualize two core strategies — including one built on a 
 ![Loader](assets/loader.png)
 
 ### 🔹 Strategy Backtesting Interface
-![Backtest](assets/backtest.png)
+![Backtest](assets/backtester.png)
 
 ### 🔹 Trade Visualizer (Chart with Signals)
-![Visualizer](assets/visualizer.png)
+![Visualizer](assets/chart.png)
 
 ### 🔹 Strategy Performance Metrics
 ![Metrics](assets/result.png)
