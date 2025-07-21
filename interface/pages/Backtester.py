@@ -54,7 +54,7 @@ if st.button('Run Backtest'):
             signals_df = bt.run(df)
 
             # Save log
-            log_path = f"log/{datetime.now().strftime('%Y-%m-%d')}_{strategy.replace(' ', '_')}_Strategy.csv"
+            log_path = f"log/{dataset}_{strategy.replace(' ', '_')}_Strategy.csv"
             signals_df.to_csv(log_path, index=False)
 
         st.success(f"Backtest completed. Signals saved to {log_path}")
